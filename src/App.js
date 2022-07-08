@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import MovieCard from './components/MovieCard';
 import Footer from './components/Footer';
 import './styles/index.css';
@@ -10,11 +11,12 @@ const App = () => {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
 
-    const findMovies = async (title) => {
-        const response = await fetch(`${OMDb_API}&s=${title}`);
-        const data = await response.json();
-
-        setMovies(data.Search);
+    const findMovies = (title) => {
+        axios.get(`${OMDb_API}&s=${title}`)
+            .then(response => {
+                const data = response.data;
+                setMovies(data.Search);
+            });
     }
 
     useEffect(() => {
