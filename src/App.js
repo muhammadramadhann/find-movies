@@ -5,8 +5,8 @@ import Router from "./components/Router";
 import Footer from "./components/Footer";
 import "./styles/index.css";
 
-const { REACT_APP_API_KEY } = process.env;
-const OMDb_API = `http://www.omdbapi.com/?apikey=${REACT_APP_API_KEY}`;
+const API_KEY = process.env.REACT_APP_API_KEY;
+const OMDb_API = `http://www.omdbapi.com/?apikey=${API_KEY}`;
 const github = "https://github.com/muhammadramadhann";
 
 const App = () => {
