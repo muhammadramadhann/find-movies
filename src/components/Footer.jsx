@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = ({ github }) => {
     return (
-        <footer className="text-sm bg-slate-900 text-slate-300 text-center p-8 mt-auto">
-            by <a href={github}>muhammadramadhaann</a>
+        <footer className="text-sm text-slate-600 text-center sm:pt-24 pt-16 pb-6 mt-auto">
+            by <a href={github}>muhammadramadhann</a>
         </footer>
     );
 };
