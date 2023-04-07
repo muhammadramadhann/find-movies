@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import star from "../images/star.svg";
 
 const MovieDetail = ({ url }) => {
     const [movie, setMovie] = useState([]);
@@ -24,7 +25,7 @@ const MovieDetail = ({ url }) => {
             <div className="container mx-auto mt-8">
                 {isLoading ? (
                     <div className="mt-10">
-                        <p className="text-center justify-center text-slate-300 text-xl">Almost there ..</p>
+                        <p className="text-center justify-center text-slate-300 text-xl">Loading...</p>
                     </div>
                 ) : (
                     <div
@@ -39,10 +40,18 @@ const MovieDetail = ({ url }) => {
                             alt={movie.Title}
                             className="lg:h-auto md:h-[36rem] h-[27rem] md:w-72 w-full object-cover"
                         />
-                        <div className="">
-                            <h1 className="font-semibold md:text-4xl text-2xl tracking-tight text-slate-100">
-                                {movie.Title}
-                            </h1>
+                        <div>
+                            <div className="flex lg:flex-row flex-col justify-between lg:items-center items-start">
+                                <div className="lg:mt-0 mt-4">
+                                    <h1 className="font-semibold md:text-4xl text-2xl tracking-tight text-slate-100">
+                                        {movie.Title}
+                                    </h1>
+                                </div>
+                                <div className="flex items-center lg:order-last order-first">
+                                    <span className="mr-2 text-[26px] text-slate-100">{movie.imdbRating}</span>
+                                    <img src={star} alt="star" className="w-[28px]" />
+                                </div>
+                            </div>
                             <div className="mt-4">
                                 <p className="text-slate-400 text-sm">
                                     <span className="mr-3">{movie.Year}</span>
